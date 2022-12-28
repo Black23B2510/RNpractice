@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 const HookPractice = () => {
-  const [name, setName] = useState(''); //không truyền vào thì undefined,didMount,didUpdate, unMount
+  const [name, setName] = useState('');
+  //console.log('Im den');
+  //không truyền vào thì undefined,didMount,didUpdate, unMount
   useEffect(() => {
     //không truyền dependencies cũng chạy,unMount: chạy khi component không chạy nữa, update dependencies để clear state cũ
     setName(name);
