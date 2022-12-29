@@ -1,39 +1,55 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import HookPractice from './app/components/UseState/HookPractice';
-import UseMemo from './app/components/UseMemo/useMemo';
-import {
-  PracticeContext,
-  PracticeProvider,
-} from './app/components/UseContext/context';
-import Counter from './app/components/UseCallback/Counter';
-// const Counter = () => {
-//   const {value, value1, setValue, setValue1} =
-//     React.useContext(PracticeContext);
-//   return (
-//     <View>
-//       <Text>{value}</Text>
-//       <TouchableOpacity
-//         onPress={() => {
-//           setValue(value + 1);
-//         }}>
-//         <Text>Increase</Text>
-//       </TouchableOpacity>
-//       <UseMemo />
-//     </View>
-//   );
-// };
-const App = () => {
+// In App.js in a new project option, navigation prop, hooks
+import {NavigationContainer} from '@react-navigation/native';
+import * as React from 'react';
+import DrawerNavigation from './app/components/navigation/DrawerNavigation';
+import Navigations from './app/components/navigation/navigations';
+function App() {
   return (
-    <PracticeProvider>
-      <Counter />
-      {/* <Counter /> */}
-      {/* <HookPractice /> */}
-      {/* <UseMemo /> */}
-    </PracticeProvider>
+    <NavigationContainer>
+      {/* <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Detail" component={DetailScreen} />
+        <Stack.Screen name="News" component={News} />
+      </Stack.Navigator> */}
+      <Navigations />
+    </NavigationContainer>
   );
-};
+}
 
 export default App;
+// import {createDrawerNavigator} from '@react-navigation/drawer';
+// import {NavigationContainer} from '@react-navigation/native';
+// import * as React from 'react';
+// import {Button, View} from 'react-native';
 
-const styles = StyleSheet.create({});
+// function HomeScreen({navigation}) {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Button
+//         onPress={() => navigation.navigate('Notifications')}
+//         title="Go to notifications"
+//       />
+//     </View>
+//   );
+// }
+
+// function NotificationsScreen({navigation}) {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Button onPress={() => navigation.goBack()} title="Go back home" />
+//     </View>
+//   );
+// }
+
+// const Drawer = createDrawerNavigator();
+
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator useLegacyImplementation initialRouteName="Home">
+//         <Drawer.Screen name="Home" component={HomeScreen} />
+//         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// }
